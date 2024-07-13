@@ -61,15 +61,12 @@ This project involves implementing various components of neural networks from sc
    - Compare the Kaggle competition results to assess model performance.
 
 ## Code Structure
-- `neural_networks/`: Contains implementations for layers, activations, losses, and optimizers.
-- `tests/`: Contains test cases for verifying the correctness of implemented components.
-- `train_ffnn.py`: Script for training the feed-forward neural network on the Iris dataset.
-- `train_conv.py`: Script for training the CNN on the CIFAR-10 dataset.
-- `check_gradients.ipynb`: Jupyter notebook for debugging gradient computations.
+- `hw6_release/code/neural_networks/`: Contains implementations for layers, activations, losses, and optimizers.
+- `hw6_release/code/tests/`: Contains test cases for verifying the correctness of implemented components.
+- `hw6_release/code/train_ffnn.py`: Script for training the feed-forward neural network on the Iris dataset.
+- `hw6_release/code/train_conv.py`: Script for training the CNN on the CIFAR-10 dataset.
+- `hw6_release/code/check_gradients.ipynb`: Jupyter notebook for debugging gradient computations.
 
-## Acknowledgements
-This project is part of the CS 189 Introduction to Machine Learning course at UC Berkeley, instructed by Jonathan Shewchuk. The provided modular codebase and autograder facilitated the implementation and testing of various neural network components.
 
 ---
 
-Feel free to adjust any specific details or add any additional sections that you think are necessary.
