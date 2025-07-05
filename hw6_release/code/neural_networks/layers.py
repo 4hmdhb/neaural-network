@@ -1,11 +1,3 @@
-"""
-Author: Sophia Sanborn, Sagnik Bhattacharya
-Institution: UC Berkeley
-Date: Spring 2020
-Course: CS189/289A
-Website: github.com/sophiaas, github.com/sagnibak
-"""
-
 import numpy as np
 from abc import ABC, abstractmethod
 
@@ -122,7 +114,6 @@ class FullyConnected(Layer):
         """Initialize all layer parameters (weights, biases)."""
         self.n_in = X_shape[1]
 
-        ### BEGIN YOUR CODE ###
 
         W = self.init_weights([self.n_in, self.n_out])
         b = np.zeros((1, self.n_out))
@@ -132,7 +123,6 @@ class FullyConnected(Layer):
         self.gradients: OrderedDict = OrderedDict({"W": np.zeros((self.n_in, self.n_out)), "b": np.zeros((1, self.n_out))})  # parameter gradients initialized to zero
                                            # MUST HAVE THE SAME KEYS AS `self.parameters`
 
-        ### END YOUR CODE ###
 
     def forward(self, X: np.ndarray) -> np.ndarray:
         """Forward pass: multiply by a weight matrix, add a bias, apply activation.
@@ -151,14 +141,12 @@ class FullyConnected(Layer):
         if self.n_in is None:
             self._init_parameters(X.shape)
 
-        ### BEGIN YOUR CODE ###
         
         Z = X.dot(self.parameters["W"]) + self.parameters["b"]
         out = self.activation.forward(Z)
         
         self.cache["X"] = X
         self.cache["Z"] = Z
-        ### END YOUR CODE ###
 
         return out
 
@@ -287,11 +275,9 @@ class Conv2D(Layer):
         out = self.activation.forward(Z)
         self.cache["X"] = X
         self.cache["Z"] = Z
-        ### END YOUR CODE ###
         return out
 
     def backward(self, dLdY: np.ndarray) -> np.ndarray:
-        ### BEGIN YOUR CODE ###
         X = self.cache["X"]
         Z = self.cache["Z"]
         W = self.parameters["W"]
@@ -321,7 +307,6 @@ class Conv2D(Layer):
                     m = [np.sum(i) for i in m]
                     Z[:, i, j, f] = m + b[0][f]
         
-        ### END YOUR CODE ###
         return dX
 
 class Pool2D(Layer):
@@ -404,7 +389,6 @@ class Pool2D(Layer):
                     Z[:, i, j, f] = np.array(m)                
         self.cache["X"] = X
         self.cache["Z"] = Z
-        ### END YOUR CODE ###
         X_pool = Z
         return X_pool
 
