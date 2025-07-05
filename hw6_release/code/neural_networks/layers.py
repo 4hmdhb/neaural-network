@@ -167,7 +167,6 @@ class FullyConnected(Layer):
         gradient of the loss with respect to the input of this layer
         shape (batch_size, input_dim)
         """
-        ### BEGIN YOUR CODE ###
         X = self.cache["X"]
         Z = self.cache["Z"]
         dLdZ = self.activation.backward(Z, dLdY)
@@ -185,7 +184,6 @@ class FullyConnected(Layer):
         self.gradients["W"] = X.T @ dLdZ
         self.gradients["b"] = np.sum(dLdZ, axis=0, keepdims=True)
 
-        ### END YOUR CODE ###
 
         return dX
 
